@@ -535,6 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6fa41dae8ec4585b332e97c41f38cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cloudParticlePrefab: {fileID: 5760548658879279048, guid: 5130b9560668e4fd0821906e9652cb5c, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
