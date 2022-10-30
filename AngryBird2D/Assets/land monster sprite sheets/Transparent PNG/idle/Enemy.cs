@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        AngryBird bird = collision.collider.GetComponent<Enemy>();
-        if (bird ! = null)
+        AngryBird bird = collision.collider.GetComponent<AngryBird>();
+        if (bird != null)
         {
             Destroy(gameObject);
             return;
