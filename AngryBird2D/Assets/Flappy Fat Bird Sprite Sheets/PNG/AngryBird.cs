@@ -6,7 +6,7 @@ public class AngryBird : MonoBehaviour
     Vector3 _initialPositon;
     private bool _birdWasLaunched;
     private float _timeSittingAround;
-    {SerializeField] private float _launchPower = 250;
+    [SerializeField] private float _launchPower = 300;
 
     private void Awake()
     {
@@ -15,15 +15,15 @@ public class AngryBird : MonoBehaviour
 
     private void Update()
     {
-        if _birdWasLaunched && GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1)
+        if (_birdWasLaunched && GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1)
         {
             _timeSittingAround += Time.deltaTime;
         }
 
-        if (transform.position.y > 20 ||
-            transform.position.y < -20 ||
-            transform.position.x > 20 ||
-            transform.position.x < -20 ||
+        if (transform.position.y > 40 ||
+            transform.position.y < -40 ||
+            transform.position.x > 40 ||
+            transform.position.x < -40 ||
             _timeSittingAround > 3)
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
