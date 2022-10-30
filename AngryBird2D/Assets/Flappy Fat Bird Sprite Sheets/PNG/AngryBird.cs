@@ -1,11 +1,34 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AngryBird : MonoBehaviour
 {
-    // Update is called once per frame
-    void Update()
+    Vector3 _initialPositon;
+    private bool _birdWasLaunched;
+    private float _timeSittingAround;
+    {SerializeField] private float _launchPower = 250;
+
+    private void Awake()
     {
-        
+        _initialPositon = transform.position;
+    }
+
+    private void Update()
+    {
+        if _birdWasLaunched && GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1)
+        {
+            _timeSittingAround += Time.deltaTime;
+        }
+
+        if (transform.position.y > 20 ||
+            transform.position.y < -20 ||
+            transform.position.x > 20 ||
+            transform.position.x < -20 ||
+            _timeSittingAround > 3)
+        {
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
+        }
     }
 
     private void OnMouseDown()
@@ -16,6 +39,12 @@ public class AngryBird : MonoBehaviour
     private void OnMouseUp()
     {
         GetComponent<SpriteRenderer>().color = Color.white;
+
+        Vector2 directionToInitialPosition = _initialPositon - transform.position;
+
+        GetComponent<Rigidbody2D>().AddForce(directionToInitialPosition * _launchPower);
+        GetComponent<Rigidbody2D>().gravityScale = 1;
+        _birdWasLaunched = true;
     }
 
     private void OnMouseDrag()
