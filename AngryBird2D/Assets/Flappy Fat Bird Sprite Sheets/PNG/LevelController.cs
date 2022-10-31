@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
@@ -22,5 +23,6 @@ public class LevelController : MonoBehaviour
 
         _nextLevelIndex++;
         string nextLevelName = "Level" + _nextLevelIndex;
+        SceneManager.LoadScene(nextLevelName);
     }
 }
