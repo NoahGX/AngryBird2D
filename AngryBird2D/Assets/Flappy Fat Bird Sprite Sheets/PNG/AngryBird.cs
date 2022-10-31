@@ -6,7 +6,7 @@ public class AngryBird : MonoBehaviour
     Vector3 _initialPosition;
     private bool _birdWasLaunched;
     private float _timeSittingAround;
-    [SerializeField] private float _launchPower = 500;
+    [SerializeField] private float _launchPower = 200;
 
     private void Awake()
     {
@@ -44,6 +44,7 @@ public class AngryBird : MonoBehaviour
 
         GetComponent<Rigidbody2D>().AddForce(directionToInitialPosition * _launchPower);
         GetComponent<Rigidbody2D>().gravityScale = 1;
+        _birdWasLaunched = true;
     }
 
     private void OnMouseDrag()
