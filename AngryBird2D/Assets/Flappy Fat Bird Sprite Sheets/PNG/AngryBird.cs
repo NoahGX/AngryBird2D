@@ -11,7 +11,7 @@ public class AngryBird : MonoBehaviour
 
     private void OnMouseUp()
     {
-        GetComponent<SpriteRenderer>().colo = Color.white;
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     private void OnMouseDrag()
