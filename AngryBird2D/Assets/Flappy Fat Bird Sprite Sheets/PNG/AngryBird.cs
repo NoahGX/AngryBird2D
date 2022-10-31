@@ -6,7 +6,7 @@ public class AngryBird : MonoBehaviour
     Vector3 _initialPosition;
     private bool _birdWasLaunched;
     private float _timeSittingAround;
-    [SerializeField] private float _launchPower = 150;
+    [SerializeField] private float _launchPower = 200;
 
     private void Awake()
     {
