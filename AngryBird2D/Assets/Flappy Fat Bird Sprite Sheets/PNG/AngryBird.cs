@@ -15,6 +15,9 @@ public class AngryBird : MonoBehaviour
 
     private void Update()
     {
+        GetComponent<LineRenderer>().SetPosition(0, transform.position);
+        GetComponent<LineRenderer>().SetPosition(1, _initialPosition);
+
         if (_birdWasLaunched && GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1)
         {
             _timeSittingAround += Time.deltaTime;
@@ -34,6 +37,7 @@ public class AngryBird : MonoBehaviour
     private void OnMouseDown()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
+        GetComponent<LineRenderer>().enabled = true;
     }
 
     private void OnMouseUp()
@@ -45,6 +49,8 @@ public class AngryBird : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(directionToInitialPosition * _launchPower);
         GetComponent<Rigidbody2D>().gravityScale = 1;
         _birdWasLaunched = true;
+
+        GetComponent<LineRenderer>().enabled = false;
     }
 
     private void OnMouseDrag()
