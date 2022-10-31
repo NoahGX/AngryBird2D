@@ -20,10 +20,10 @@ public class AngryBird : MonoBehaviour
             _timeSittingAround += Time.deltaTime;
         }
 
-        if (transform.position.y > 30 ||
-            transform.position.y < -30 ||
-            transform.position.x > 30 ||
-            transform.position.x < -30 ||
+        if (transform.position.y > 55 ||
+            transform.position.y < -40 ||
+            transform.position.x > 55 ||
+            transform.position.x < -40 ||
             _timeSittingAround > 3)
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
